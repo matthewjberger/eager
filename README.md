@@ -22,13 +22,22 @@ Your project can then be found in the `bin/debug` directory.
 
 If you want a release build:
 ```bash
-make -C build
+make -C build config=release
 ```
 # Prerequisites
 
 ####Note: If you're using NoMachine at the University of Nevada, Reno, the following steps are not required. The library has already been built from source and installed on NoMachine.
 
 Ogre 3D must be installed. If it isn't installed you should build it from the source with the following commands.  Mercurial is required to clone the repo.
+
+
+#### Ubuntu (or any Debian-Based Linux distribution)
+
+Download the required dependencies:
+
+``` bash
+sudo apt-get install libfreetype6-dev libfreeimage-dev libzzip-dev libxrandr-dev libxaw7-dev freeglut3-dev libgl1-mesa-dev libglu1-mesa-dev libcppunit-dev libboost-dev
+```
 
 Clone the repo and grab version 1.9:
 ```bash
@@ -38,12 +47,17 @@ hg pull
 hg update v1-9
 ```
 
-Use cmake to build the library:
+Use cmake to generate a makefile:
 
 ```bash
 mkdir build
 cd build
 cmake ..
+```
+
+Build OGRE concurrently:
+```bash
+make -j4 # The -j switch tells make to use multiple threads, speeding up the build a bit.
 ```
 
 Install the library:
