@@ -27,3 +27,7 @@
 *.exe
 *.out
 *.app
+
+# Output Files/Folders
+bin/*
+build/*
