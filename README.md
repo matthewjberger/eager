@@ -1,5 +1,5 @@
 # Eager
-An ogre project template that uses premake to generate C++ project files for make or visual studio.
+An ogre c++ project template that uses premake to generate a makefile.
 
 # Building your Project
 
