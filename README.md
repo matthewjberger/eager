@@ -41,7 +41,7 @@ sudo apt-get install libfreetype6-dev libfreeimage-dev libzzip-dev libxrandr-dev
 
 Clone the repo and grab version 1.9:
 ```bash
-hg clone https://bitbucket.org/sinbad/ogre/src
+hg clone https://bitbucket.org/sinbad/ogre
 cd ogre
 hg pull
 hg update v1-9
