@@ -34,6 +34,9 @@ Vagrant.configure("2") do |config|
 	  
     # Customize the amount of cpus on the VM:
     vb.cpus = 2
+
+    # Set the video memory to 128Mb
+    vb.customize ["modifyvm", :id, "--vram", "128"]
   end
 
   # This will install xfce, as well as build and install the ogre 3D library from source.
@@ -44,15 +47,15 @@ Vagrant.configure("2") do |config|
     sed -i 's/allowed_users=.*$/allowed_users=anybody/' /etc/X11/Xwrapper.config
     apt-get install -y libfreetype6-dev libfreeimage-dev libzzip-dev libxrandr-dev libxaw7-dev freeglut3-dev libgl1-mesa-dev libglu1-mesa-dev libcppunit-dev libboost1.58-* libois-dev mercurial cmake g++ gdb doxygen
     hg clone https://bitbucket.org/sinbad/ogre
-	cd ogre
-	hg pull
-	hg update v1-9
-	mkdir build
-	cd build
-	cmake ..
-	make -j4
-	make install
-	cd ../../
-	rm -rf ogre
+    cd ogre
+    hg pull
+    hg update v1-9
+    mkdir build
+    cd build
+    cmake ..
+    make -j4
+    make install
+    cd ../../
+    rm -rf ogre
   SHELL
 end
