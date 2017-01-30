@@ -31,12 +31,11 @@ Vagrant.configure("2") do |config|
 
     # Customize the amount of memory on the VM:
     vb.memory = "2048"
+	  
+    # Customize the amount of cpus on the VM:
+    vb.cpus = 2
   end
 
-  # Enable provisioning with a shell script. Additional provisioners such as
-  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
-  # documentation for more information about their specific syntax and use.
-  #
   # This will install xfce, as well as build and install the ogre 3D library from source.
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
