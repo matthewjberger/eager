@@ -24,6 +24,27 @@ If you want a release build:
 ```bash
 make -C build config=release
 ```
+# Vagrant
+
+This will generate an ubuntu virtual machine with XFCE and the ogre 3D library installed.
+
+1.) [Install Vagrant](https://www.vagrantup.com/downloads.html)
+
+2.) [Install Virtualbox](https://www.virtualbox.org/wiki/Downloads)
+
+3.) Clone this repo with:
+
+```bash
+git clone https://github.com/matthewjberger/eager 
+cd eager
+```
+
+4.) Enter the following command: 
+
+```bash
+vagrant up
+```
+
 # Prerequisites
 
 ####Note: If you're using NoMachine at the University of Nevada, Reno, the following steps are not required. The library has already been built from source and installed on NoMachine.
