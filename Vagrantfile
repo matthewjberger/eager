@@ -35,8 +35,11 @@ Vagrant.configure("2") do |config|
     # Customize the amount of cpus on the VM:
     vb.cpus = 2
 
-    # Set the video memory to 128Mb
+    # Set the video memory to 128Mb:
     vb.customize ["modifyvm", :id, "--vram", "128"]
+
+    # Enable 3D acceleration:
+    vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
   end
 
   # This will install xfce, as well as build and install the ogre 3D library from source.
