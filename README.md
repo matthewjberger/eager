@@ -36,7 +36,7 @@ Ogre 3D must be installed. If it isn't installed you should build it from the so
 Download the required dependencies:
 
 ``` bash
-sudo apt-get install libfreetype6-dev libfreeimage-dev libzzip-dev libxrandr-dev libxaw7-dev freeglut3-dev libgl1-mesa-dev libglu1-mesa-dev libcppunit-dev libboost1.58-* libois-dev mercurial cmake g++ gdb
+sudo apt-get install libfreetype6-dev libfreeimage-dev libzzip-dev libxrandr-dev libxaw7-dev freeglut3-dev libgl1-mesa-dev libglu1-mesa-dev libcppunit-dev libboost1.58-* libois-dev mercurial cmake g++ gdb doxygen
 ```
 
 Clone the repo and grab version 1.9:
