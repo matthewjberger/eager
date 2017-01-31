@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "v0rtex/xenial64"
+  config.vm.box = "janihur/ubuntu-1604-lxde-desktop"
 
 
   # Share an additional folder to the guest VM. The first argument is
@@ -31,7 +31,7 @@ Vagrant.configure("2") do |config|
 
     # Customize the amount of memory on the VM:
     vb.memory = "2048"
-	  
+
     # Customize the amount of cpus on the VM:
     vb.cpus = 2
 
@@ -42,12 +42,10 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
   end
 
-  # This will install xfce, as well as build and install the ogre 3D library from source.
+  # This will build and install the ogre 3D library from source.
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
     apt-get upgrade
-    apt-get install -y xfce4 virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
-    sed -i 's/allowed_users=.*$/allowed_users=anybody/' /etc/X11/Xwrapper.config
     apt-get install -y libfreetype6-dev libfreeimage-dev libzzip-dev libxrandr-dev libxaw7-dev freeglut3-dev libgl1-mesa-dev libglu1-mesa-dev libcppunit-dev libboost1.58-* libois-dev mercurial cmake g++ gdb doxygen
     hg clone https://bitbucket.org/sinbad/ogre
     cd ogre
