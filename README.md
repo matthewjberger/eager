@@ -48,6 +48,8 @@ cd eager
 vagrant up
 ```
 
+The virtual machine will be downloaded and then opened in virtual box. You can login with the password 'vagrant'. The files in this repo are in the folder `~/Code/eager~` which is also shared with the host.
+
 # Prerequisites
 
 ####Note: If you're using NoMachine at the University of Nevada, Reno, the following steps are not required. The library has already been built from source and installed on NoMachine.
