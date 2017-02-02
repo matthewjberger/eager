@@ -28,10 +28,6 @@ make -C build config=release
 
 This will generate an ubuntu virtual machine with XFCE and the ogre 3D library installed.
 
-Username: `vagrant`
-
-Password: `vagrant`
-
 1.) [Install Vagrant](https://www.vagrantup.com/downloads.html)
 
 2.) [Install Virtualbox](https://www.virtualbox.org/wiki/Downloads)
@@ -48,6 +44,9 @@ cd eager
 ```bash
 vagrant up
 ```
+> Username: `vagrant`
+
+> Password: `vagrant`
 
 The virtual machine will be downloaded and then opened in virtual box. You can login with the password `vagrant`. The files in this repo are in the folder `~/Code/eager~` which is also shared with the host.
 
