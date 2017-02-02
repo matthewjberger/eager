@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "janihur/ubuntu-1604-lxde-desktop"
+  config.vm.box = "matthewjberger/ubuntu64-ogre-eclipse"
 
 
   # Share an additional folder to the guest VM. The first argument is
@@ -42,21 +42,8 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
   end
 
-  # This will build and install the ogre 3D library from source.
   config.vm.provision "shell", inline: <<-SHELL
-    apt-get update
-    apt-get upgrade
-    apt-get install -y libfreetype6-dev libfreeimage-dev libzzip-dev libxrandr-dev libxaw7-dev freeglut3-dev libgl1-mesa-dev libglu1-mesa-dev libcppunit-dev libboost1.58-* libois-dev mercurial cmake g++ gdb doxygen
-    hg clone https://bitbucket.org/sinbad/ogre
-    cd ogre
-    hg pull
-    hg update v1-9
-    mkdir build
-    cd build
-    cmake ..
-    make -j4
-    make install
-    cd ../../
-    rm -rf ogre
+    apt-get update -y
+    apt-get upgrade -y
   SHELL
 end
