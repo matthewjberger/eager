@@ -51,6 +51,8 @@ vagrant up
 
 The virtual machine will be downloaded and then opened in virtual box. You can login with the password `vagrant`. The files in this repo are in the folder `~/Code/eager~` which is also shared with the host.
 
+####Note: If there is an issue with the mouse while running a 3D program that captures the mouse, hit `ctrl+home` and then go to `view->mouse integration` and disable it. This can be re-enabled when you're finished running the program if there are issues.
+
 # Prerequisites
 
 ####Note: If you're using NoMachine at the University of Nevada, Reno, the following steps are not required. The library has already been built from source and installed on NoMachine.
