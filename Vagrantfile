@@ -41,9 +41,4 @@ Vagrant.configure("2") do |config|
     # Enable 3D acceleration:
     vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
   end
-
-  config.vm.provision "shell", inline: <<-SHELL
-    apt-get update -y
-    apt-get upgrade -y
-  SHELL
 end
