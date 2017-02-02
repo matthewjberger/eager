@@ -49,7 +49,7 @@ cd eager
 vagrant up
 ```
 
-The virtual machine will be downloaded and then opened in virtual box. You can login with the password 'vagrant'. The files in this repo are in the folder `~/Code/eager~` which is also shared with the host.
+The virtual machine will be downloaded and then opened in virtual box. You can login with the password `vagrant`. The files in this repo are in the folder `~/Code/eager~` which is also shared with the host.
 
 # Prerequisites
 
