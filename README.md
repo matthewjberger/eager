@@ -1,13 +1,19 @@
 # Eager
 An Ogre3D/C++ project template that uses cmake to generate a makefile.
 
+You can fork this repo and work on the files in the source directory.
+
 # Building your Project
 
 Check the prerequisites section if anything fails here.
 
 #### GNU Make (Linux)
 
-__First, fork this repo and clone it.__
+First, clone the repo (or fork it!):
+
+```bash
+git clone https://github.com/matthewjberger/eager		
+```		
 
 Then to build, use [CMake](https://cmake.org/):
 
@@ -17,6 +23,7 @@ mkdir build
 cd build
 cmake ..
 ```    
+
 Your project can then be found in the `bin` directory.
 
 # Vagrant
