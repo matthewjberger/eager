@@ -23,7 +23,7 @@ Your project can then be found in the `bin` directory.
 
 # Vagrant
 
-This will generate an ubuntu virtual machine with XFCE and the ogre 3D library installed.
+This will generate an ubuntu virtual machine with eclipse and the Ogre3D library built from source and installed.
 
 1.) [Install Vagrant](https://www.vagrantup.com/downloads.html)
 
