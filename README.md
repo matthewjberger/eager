@@ -80,9 +80,9 @@ cd build
 cmake ..
 ```
 
-Build OGRE concurrently:
+Build OGRE:
 ```bash
-make -j4 # The -j switch tells make to use multiple threads, speeding up the build a bit.
+make -j5
 ```
 
 Install the library:
