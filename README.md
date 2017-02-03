@@ -7,10 +7,8 @@ Check the prerequisites section if anything fails here.
 
 #### GNU Make (Linux)
 
-First, clone the repo:
-```bash
-git clone https://github.com/matthewjberger/eager
-```
+__First, fork this repo and clone it.__
+
 Then to build, use [CMake](https://cmake.org/):
 
 ```bash
