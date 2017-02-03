@@ -9,15 +9,15 @@ Check the prerequisites section if anything fails here.
 
 First, clone the repo:
 ```bash
-    git clone https://github.com/matthewjberger/eager
+git clone https://github.com/matthewjberger/eager
 ```
 Then to build, use [CMake](https://cmake.org/):
 
 ```bash
-    cd eager
-    mkdir build
-    cd build
-    cmake ..
+cd eager
+mkdir build
+cd build
+cmake ..
 ```    
 Your project can then be found in the `bin` directory.
 
