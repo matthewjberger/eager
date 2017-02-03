@@ -1,29 +1,26 @@
 # Eager
-An ogre c++ project template that uses premake to generate a makefile.
+An Ogre3D/C++ project template that uses cmake to generate a makefile.
 
 # Building your Project
 
 Check the prerequisites section if anything fails here.
 
 #### GNU Make (Linux)
-```bash
-git clone https://github.com/matthewjberger/eager your-project-name
-cd your-project-name
-./premake5 gmake
-````
 
-For a debug build:
-
+First, clone the repo:
 ```bash
-make -C build
+    git clone https://github.com/matthewjberger/eager
 ```
+Then to build, use [CMake](https://cmake.org/):
 
-Your project can then be found in the `bin/debug` directory.
-
-If you want a release build:
 ```bash
-make -C build config=release
-```
+    cd eager
+    mkdir build
+    cd build
+    cmake ..
+```    
+Your project can then be found in the `bin` directory.
+
 # Vagrant
 
 This will generate an ubuntu virtual machine with XFCE and the ogre 3D library installed.
