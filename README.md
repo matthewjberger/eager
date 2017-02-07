@@ -61,7 +61,7 @@ vagrant up
 
 > Password: `vagrant`
 
-The virtual machine will be downloaded and then opened in virtual box. You can login with the password `vagrant`. The files in this repo are in the folder `~/Code/eager` which is also shared with the host.
+The virtual machine will be downloaded and then opened in VirtualBox. You can login with the password `vagrant`. The files in this repo are in the folder `~/Code/eager` which is also shared with the host.
 
 ####Note: If there is an issue with the mouse while running a 3D program that captures the mouse, hit `ctrl+home` and then go to `input->mouse integration` and disable it. This can be re-enabled when you're finished running the program.
 
