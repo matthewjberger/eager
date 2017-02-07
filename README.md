@@ -37,7 +37,9 @@ Finally, when you compile, your project can be found in the `bin` directory.
 
 # Vagrant
 
-This will generate an ubuntu virtual machine with eclipse and the Ogre3D library built from source and installed.
+This will generate an ubuntu virtual machine with eclipse, cmake, and the Ogre3D library built from source and installed.
+
+After loading up this virtual machine, you can follow the build instructions above for working on your project.
 
 1.) [Install Vagrant](https://www.vagrantup.com/downloads.html)
 
