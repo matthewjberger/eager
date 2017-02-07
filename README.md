@@ -22,8 +22,9 @@ cd eager
 mkdir build
 cd build
 
-# To generate makefiles
+# To generate makefiles and build
 cmake .. 
+make
 
 # Alternatively, to generate an eclipse project
 cmake -G "Eclipse CDT4 - Unix Makefiles" .. 
