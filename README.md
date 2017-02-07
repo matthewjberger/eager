@@ -1,5 +1,5 @@
 # Eager
-An Ogre3D/C++ project template that uses cmake to generate a makefile.
+An Ogre3D 1.9 and C++ project template that uses cmake to generate project files.
 
 You can fork this repo and work on the files in the source directory.
 
