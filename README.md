@@ -21,10 +21,19 @@ Then to build, use [CMake](https://cmake.org/):
 cd eager
 mkdir build
 cd build
-cmake ..
+
+# To generate makefiles
+cmake .. 
+
+# Alternatively, to generate an eclipse project
+cmake -G "Eclipse CDT4 - Unix Makefiles" .. 
 ```    
 
-Your project can then be found in the `bin` directory.
+This will generate a makefile in the `build` directory. 
+
+You can open this folder as a project in eclipse if you generated eclipse project files. 
+
+Finally, when you compile, your project can be found in the `bin` directory.
 
 # Vagrant
 
