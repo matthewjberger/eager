@@ -27,7 +27,7 @@ cmake ..
 make
 
 # Alternatively, to generate an eclipse project
-cmake -G "Eclipse CDT4 - Unix Makefiles" .. 
+cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=Debug .. 
 ```    
 
 This will generate a makefile in the `build` directory. 
