@@ -32,7 +32,14 @@ cmake -G "Eclipse CDT4 - Unix Makefiles" ..
 
 This will generate a makefile in the `build` directory. 
 
-You can open this folder as a project in eclipse if you generated eclipse project files. 
+You can open this folder as a project in eclipse if you generated eclipse project files, using the following instructions from the cmake wiki:
+
+To import the created project file into Eclipse:
+
+    1.) Import project using Menu File->Import
+    2.) Select General->Existing projects into workspace:
+    3.) Browse where your build tree is and select the root build tree directory. Keep "Copy projects into workspace" unchecked.
+    4.) You get a fully functional eclipse project 
 
 Finally, when you compile, your project can be found in the `bin` directory.
 
