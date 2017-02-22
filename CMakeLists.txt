@@ -6,10 +6,16 @@ project(Ogre3D)
 
 # Set the proper paths for windows
 # using the OGRE_HOME environment variable.
-if(WIN32)
+if(MSVC)
 	set(CMAKE_MODULE_PATH "$ENV{OGRE_HOME}/CMake/;${CMAKE_MODULE_PATH}")
 	set(OGRE_SAMPLES_INCLUDEPATH "$ENV{OGRE_HOME}/Samples/include")
-endif(WIN32)
+	set(OGRE_BOOST_INCLUDE_PATH "$ENV{OGRE_HOME}/boost")
+	set(OGRE_BOOST_LIBRARIES "$ENV{OGRE_HOME}/boost/lib")
+
+    # Hide the console in visual studio projects in debug and release
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS")
+    set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS")
+endif(MSVC)
 
 # Set the proper paths for linux/mac
 if(UNIX)
@@ -39,12 +45,6 @@ if(UNIX)
 	endif(EXISTS "/usr/local/lib/OGRE/cmake")
 endif(UNIX)
 
-# CMake defaults to leaving CMAKE_BUILD_TYPE empty. This screws up
-# differentiation between debug and release builds.
-if (CMAKE_BUILD_TYPE STREQUAL "")
-  set(CMAKE_BUILD_TYPE "RelWithDebInfo" CACHE STRING "Choose the type of build, options are: None (CMAKE_CXX_FLAGS or CMAKE_C_FLAGS used) Debug Release RelWithDebInfo MinSizeRel." FORCE)
-endif ()
-
 # Support C++14
 set(CMAKE_CXX_STANDARD_REQUIRED on)
 set(CMAKE_CXX_STANDARD 11)
@@ -67,13 +67,17 @@ include_directories(${OGRE_INCLUDE_DIRS}
                     ${OIS_INCLUDE_DIRS}
                     ${OGRE_SAMPLES_INCLUDEPATH}
                     ${OGRE_Overlay_INCLUDE_DIRS})
+# Add MSVC Boost include and library path
+if(MSVC)
+	include_directories(${OGRE_BOOST_INCLUDE_PATH})
+	link_directories(${OGRE_BOOST_LIBRARIES})
+endif(MSVC)
 
 # Create file globs
 file(GLOB_RECURSE PROJECT_HEADERS src/*.h)
 file(GLOB_RECURSE PROJECT_SOURCES src/*.cpp)
 file(GLOB         PROJECT_CONFIGS CMakeLists.txt
                                   README.md
-                                 .gitattributes
                                  .gitignore)
 
 # Define source file groupings
@@ -82,19 +86,30 @@ source_group("Sources" FILES ${PROJECT_SOURCES})
 source_group("Configs" FILES ${PROJECT_CONFIGS})
 
 # Define the executable
-add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
+add_executable( ${PROJECT_NAME} ${PROJECT_HEADERS} 
+                                ${PROJECT_SOURCES})
 
 # Define libraries to link to
 target_link_libraries( ${PROJECT_NAME} ${OGRE_LIBRARIES}
                                        ${OIS_LIBRARIES}
-                                       ${OGRE_Overlay_LIBRARIES})
+                                       ${OGRE_Paging_LIBRARIES}
+                                       ${OGRE_Terrain_LIBRARIES}
+                                       ${OGRE_Property_LIBRARIES}
+                                       ${OGRE_RTShaderSystem_LIBRARIES}
+                                       ${OGRE_Volume_LIBRARIES}
+                                       ${OGRE_Overlay_LIBRARIES}
+                                       ${OGRE_MeshLodGenerator_LIBRARIES}
+                                       ${OGRE_HLMS_LIBRARIES}
+                                       ${OGRE_Bites_LIBRARIES})
 
 # Output to bin directory
 set_target_properties(${PROJECT_NAME} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
-# Copy configs to output folder after a successful build
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy_directory
-                   ${CMAKE_SOURCE_DIR}/src/config
-                   $<TARGET_FILE_DIR:${PROJECT_NAME}>)
+if(UNIX)
+	# Copy configs to output folder after a successful build
+	add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+ 	                  COMMAND ${CMAKE_COMMAND} -E copy_directory
+ 	                  ${CMAKE_SOURCE_DIR}/src/config
+ 	                  $<${PROJECT_NAME}>)
+endif(UNIX)
