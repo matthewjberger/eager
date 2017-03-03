@@ -77,7 +77,7 @@ Finally, when you compile, your project can be found in the `bin` directory.
 
 * There will be a prompt asking you to 'upgrade' your project. You should hit cancel on this dialog, as we don't want to upgrade.
 
-* Set working directory to `$(TargetDir)`
+* Set working directory to `$(TargetDir)` under `Project Properties->Configuration Properties->Debugging->Working Directory`
 * Set your Ogre project as startup project
 
 11.) Finally, when you run your program make sure you choose `DirectX 9` as your renderer backend.
