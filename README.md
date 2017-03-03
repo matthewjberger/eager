@@ -7,7 +7,7 @@ You can fork this repo and work on the files in the source directory.
 
 Check the prerequisites section if anything fails here.
 
-#### GNU Make (Linux)
+## GNU Make (Linux)
 
 First, clone the repo (or fork it!):
 
@@ -43,7 +43,7 @@ To import the created project file into Eclipse:
 
 Finally, when you compile, your project can be found in the `bin` directory.
 
-#### Windows with Visual Studio 2015
+## Windows with Visual Studio 2015
 
 1.) Install `Visual Studio 2012` express
 
