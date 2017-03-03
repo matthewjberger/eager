@@ -4,6 +4,12 @@
 cmake_minimum_required(VERSION 3.0)
 project(Ogre3D)
 
+# Set the CMake module path
+set (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+
+# Use cotire
+include(cotire)
+
 # Set the proper paths for windows
 # using the OGRE_HOME environment variable.
 if(MSVC)
@@ -86,7 +92,7 @@ source_group("Sources" FILES ${PROJECT_SOURCES})
 source_group("Configs" FILES ${PROJECT_CONFIGS})
 
 # Define the executable
-add_executable( ${PROJECT_NAME} ${PROJECT_HEADERS} 
+add_executable( ${PROJECT_NAME} ${PROJECT_HEADERS}
                                 ${PROJECT_SOURCES})
 
 # Define libraries to link to
@@ -102,6 +108,9 @@ target_link_libraries( ${PROJECT_NAME} ${OGRE_LIBRARIES}
                                        ${OGRE_HLMS_LIBRARIES}
                                        ${OGRE_Bites_LIBRARIES})
 
+# Reduce the compile time of the build
+cotire( ${PROJECT_NAME} )
+
 # Output to bin directory
 set_target_properties(${PROJECT_NAME} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
@@ -109,7 +118,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 if(UNIX)
 	# Copy configs to output folder after a successful build
 	add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-       	                   COMMAND ${CMAKE_COMMAND} -E copy_directory
-                           ${CMAKE_SOURCE_DIR}/src/config
-			   $<TARGET_FILE_DIR:${PROJECT_NAME}>)
+       	                    COMMAND ${CMAKE_COMMAND} -E copy_directory
+                            ${CMAKE_SOURCE_DIR}/src/config
+			                $<TARGET_FILE_DIR:${PROJECT_NAME}>)
 endif(UNIX)

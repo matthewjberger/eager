@@ -12,8 +12,8 @@ Check the prerequisites section if anything fails here.
 First, clone the repo (or fork it!):
 
 ```bash
-git clone https://github.com/matthewjberger/eager		
-```		
+git clone https://github.com/matthewjberger/eager
+```
 
 Then to build, use [CMake](https://cmake.org/):
 
@@ -23,14 +23,14 @@ mkdir build
 cd build
 
 # To generate makefiles and build
-cmake .. 
+cmake ..
 make
 
 # Alternatively, to generate an eclipse project
-cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=Debug .. 
-```    
+cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=Debug ..
+```
 
-This will generate a makefile in the `build` directory. 
+This will generate a makefile in the `build` directory.
 
 You can open this folder as a project in eclipse if you generated eclipse project files, using the following instructions from the cmake wiki:
 
@@ -39,9 +39,50 @@ To import the created project file into Eclipse:
     1.) Import project using Menu File->Import
     2.) Select General->Existing projects into workspace:
     3.) Browse where your build tree is and select the root build tree directory. Keep "Copy projects into workspace" unchecked.
-    4.) You get a fully functional eclipse project 
+    4.) You get a fully functional eclipse project
 
 Finally, when you compile, your project can be found in the `bin` directory.
+
+#### Windows with Visual Studio 2015
+
+1.) Install `Visual Studio 2012` express
+
+> [https://www.microsoft.com/en-us/download/details.aspx?id=34673](https://www.microsoft.com/en-us/download/details.aspx?id=34673)
+
+2.) Install `Visual Studio 2015` Community
+
+> [https://www.visualstudio.com/vs/community/](https://www.visualstudio.com/vs/community/)
+
+3.) Install DirectX 9
+
+> [https://www.microsoft.com/en-us/download/details.aspx?id=6812](https://www.microsoft.com/en-us/download/details.aspx?id=6812)
+
+4.) Download the `OGRE SDK` for `Visual Studio 2012`:
+
+> [http://sourceforge.net/projects/ogre/files/ogre/1.9/1.9/OgreSDK_vc11_v1-9-0.exe/download](http://sourceforge.net/projects/ogre/files/ogre/1.9/1.9/OgreSDK_vc11_v1-9-0.exe/download)
+
+5.) Run the `Ogre SDK` executable to extract the `Ogre SDK` to a directory on your computer.
+
+6.) Set an environment variable named `OGRE_HOME` to the root path of the extracted SDK folder
+
+7.) Copy the `media` and `bin` folders to the root of the path where you cloned this repository. These should be in the same level as the `CMakeLists.txt` file and the `src` directory.
+
+8.) Create a directory named `build` inside the root of your clone of this repository.
+
+9.) Generate `Visual Studio 2015` solution and project files:
+
+    cmake -G "Visual Studio 14 2015" -T v110 ..
+
+10.) Open the solution located in the `build` folder.
+
+* There will be a prompt asking you to 'upgrade' your project. You should hit cancel on this dialog, as we don't want to upgrade.
+
+* Set working directory to `$(TargetDir)`
+* Set your Ogre project as startup project
+
+11.) Finally, when you run your program make sure you choose `DirectX` as your renderer backend.
+
+##### Note: Thanks to the [Cotire CMake plugin](https://github.com/sakra/cotire) the build will be sped up considerably and should offer a nice user experience.
 
 # Vagrant
 
@@ -56,11 +97,11 @@ After loading up this virtual machine, you can follow the build instructions abo
 3.) Clone this repo with:
 
 ```bash
-git clone https://github.com/matthewjberger/eager 
+git clone https://github.com/matthewjberger/eager
 cd eager
 ```
 
-4.) Enter the following command: 
+4.) Enter the following command:
 
 ```bash
 vagrant up
@@ -75,7 +116,7 @@ The virtual machine will be downloaded and then opened in VirtualBox. You can lo
 
 # Prerequisites
 
-####Note: If you're using the ecc computers at the University of Nevada, Reno, the following steps are not required. The library has already been built from source and installed. However, if you are using NoMachine the code will compile but to run you must use the command below:
+#### Note: If you're using the ecc computers at the University of Nevada, Reno, the following steps are not required. The library has already been built from source and installed. However, if you are using NoMachine the code will compile but to run you must use the command below:
 > /usr/NX/scripts/vgl/vglrun \<your project's .bin path here\>
 
 Ogre 3D must be installed. If it isn't installed you should build it from the source with the following commands.  Mercurial is required to clone the repo.
@@ -90,6 +131,7 @@ sudo apt-get install libfreetype6-dev libfreeimage-dev libzzip-dev libxrandr-dev
 ```
 
 Clone the repo and grab version 1.9:
+
 ```bash
 hg clone https://bitbucket.org/sinbad/ogre
 cd ogre
@@ -106,11 +148,13 @@ cmake ..
 ```
 
 Build OGRE:
+
 ```bash
 make -j5
 ```
 
 Install the library:
+
 ```bash
 sudo make install
 ```
