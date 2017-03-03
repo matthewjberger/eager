@@ -45,15 +45,15 @@ Finally, when you compile, your project can be found in the `bin` directory.
 
 ## Windows with Visual Studio 2015
 
-1.) Install `Visual Studio 2012` express
+1.) Install `Visual Studio 2012` express:
 
 > [https://www.microsoft.com/en-us/download/details.aspx?id=34673](https://www.microsoft.com/en-us/download/details.aspx?id=34673)
 
-2.) Install `Visual Studio 2015` Community
+2.) Install `Visual Studio 2015` Community:
 
 > [https://www.visualstudio.com/vs/community/](https://www.visualstudio.com/vs/community/)
 
-3.) Install DirectX 9
+3.) Install `DirectX 9`:
 
 > [https://www.microsoft.com/en-us/download/details.aspx?id=6812](https://www.microsoft.com/en-us/download/details.aspx?id=6812)
 
@@ -80,7 +80,7 @@ Finally, when you compile, your project can be found in the `bin` directory.
 * Set working directory to `$(TargetDir)`
 * Set your Ogre project as startup project
 
-11.) Finally, when you run your program make sure you choose `DirectX` as your renderer backend.
+11.) Finally, when you run your program make sure you choose `DirectX 9` as your renderer backend.
 
 ##### Note: Thanks to the [Cotire CMake plugin](https://github.com/sakra/cotire) the build will be sped up considerably and should offer a nice user experience.
 
