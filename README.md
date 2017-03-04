@@ -45,6 +45,8 @@ Finally, when you compile, your project can be found in the `bin` directory.
 
 ## Windows with Visual Studio 2015
 
+First, clone or fork this repo, and then:
+
 1.) Install `Visual Studio 2012` express:
 
 > [https://www.microsoft.com/en-us/download/details.aspx?id=34673](https://www.microsoft.com/en-us/download/details.aspx?id=34673)
