@@ -69,7 +69,7 @@ Finally, when you compile, your project can be found in the `bin` directory.
 
 8.) Create a directory named `build` inside the root of your clone of this repository.
 
-9.) Generate `Visual Studio 2015` solution and project files:
+9.) Generate a `Visual Studio 2015` solution and project files:
 
     cmake -G "Visual Studio 14 2015" -T v110 ..
 
