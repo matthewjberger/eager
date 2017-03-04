@@ -13,10 +13,12 @@ include(cotire)
 # Set the proper paths for windows
 # using the OGRE_HOME environment variable.
 if(MSVC)
-	set(CMAKE_MODULE_PATH "$ENV{OGRE_HOME}/CMake/;${CMAKE_MODULE_PATH}")
-	set(OGRE_SAMPLES_INCLUDEPATH "$ENV{OGRE_HOME}/Samples/include")
-	set(OGRE_BOOST_INCLUDE_PATH "$ENV{OGRE_HOME}/boost")
-	set(OGRE_BOOST_LIBRARIES "$ENV{OGRE_HOME}/boost/lib")
+    set(OGRE_HOME "$ENV{OGRE_HOME}")
+    STRING(REGEX REPLACE "\\\\" "/" OGRE_HOME ${OGRE_HOME}) 
+	set(CMAKE_MODULE_PATH "${OGRE_HOME}/CMake/;${CMAKE_MODULE_PATH}")
+	set(OGRE_SAMPLES_INCLUDEPATH "${OGRE_HOME}/Samples/include")
+	set(OGRE_BOOST_INCLUDE_PATH "${OGRE_HOME}/boost")
+	set(OGRE_BOOST_LIBRARIES "${OGRE_HOME}/boost/lib")
 
     # Hide the console in visual studio projects in debug and release
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS")

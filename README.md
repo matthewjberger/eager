@@ -82,7 +82,7 @@ Finally, when you compile, your project can be found in the `bin` directory.
 
 11.) Finally, when you run your program make sure you choose `DirectX 9` as your renderer backend.
 
-##### Note: Thanks to the [Cotire CMake plugin](https://github.com/sakra/cotire) the build will be sped up considerably and should offer a nice user experience.
+##### Note: Thanks to the [Cotire CMake plugin](https://github.com/sakra/cotire) the build will be sped up considerably.
 
 # Vagrant
 
