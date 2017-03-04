@@ -5,9 +5,9 @@ You can fork this repo and work on the files in the source directory.
 
 # Building your Project
 
-Check the prerequisites section if anything fails here.
-
 ## GNU Make (Linux)
+
+>  Check the [building OGRE from source](#building-ogre-from-source) section if anything fails here.
 
 First, clone the repo (or fork it!):
 
@@ -114,7 +114,7 @@ The virtual machine will be downloaded and then opened in VirtualBox. You can lo
 
 ####Note: If there is an issue with the mouse while running a 3D program that captures the mouse, hit `ctrl+home` and then go to `input->mouse integration` and disable it. This can be re-enabled when you're finished running the program.
 
-# Prerequisites
+# Building OGRE from Source
 
 #### Note: If you're using the ecc computers at the University of Nevada, Reno, the following steps are not required. The library has already been built from source and installed. However, if you are using NoMachine the code will compile but to run you must use the command below:
 > /usr/NX/scripts/vgl/vglrun \<your project's .bin path here\>
