@@ -5,6 +5,9 @@ You can fork this repo and work on the files in the source directory.
 
 # Building your Project
 
+* [Linux using a Makefile or Eclipse](#gnu-make-linux)
+* [Windows using Visual Studio](#windows-with-visual-studio-2015)
+
 ## GNU Make (Linux)
 
 >  Check the [building OGRE from source](#building-ogre-from-source) section if anything fails here.
