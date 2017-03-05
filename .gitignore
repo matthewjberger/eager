@@ -31,3 +31,6 @@
 # Output Files/Folders
 bin/*
 build/*
+
+# OGRE Media Folder
+media/*
