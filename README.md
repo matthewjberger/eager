@@ -85,13 +85,7 @@ First, clone or fork this repo, and then:
 
 * There will be a prompt asking you to 'upgrade' your project. You should hit cancel on this dialog, as we don't want to upgrade.
 
-11.) Finally, when you run your program make sure you choose `DirectX 9` as your renderer backend.
-
-* If you wish to use the `OpenGL` backend (to use the ocean glsl shaders, for example), you'll need to add the following line to the `[Popular]` section of your `resources_d.cfg` in your debug folder, and to your `resources.cfg` in your release folder.
-
-```cfg
-FileSystem=../../Media/materials/programs
-```
+11.) Finally, when you run your program make sure you choose `DirectX 9` or `OpenGL` as your renderer backend.
 
 ##### Note: Thanks to the [Cotire CMake plugin](https://github.com/sakra/cotire) the build will be sped up considerably.
 
