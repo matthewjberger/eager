@@ -3,6 +3,8 @@ An Ogre3D 1.9 and C++ project template that uses cmake to generate project files
 
 You can fork this repo and work on the files in the source directory.
 
+[Click here for instructions on keeping your fork up to date with this repo.](https://help.github.com/articles/syncing-a-fork/)
+
 # Building your Project
 
 * [Linux using a Makefile or Eclipse](#gnu-make-linux)
