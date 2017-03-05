@@ -9,7 +9,7 @@ You can fork this repo and work on the files in the source directory.
 
 * [Linux using a Makefile or Eclipse](#gnu-make-linux)
 * [Windows using Visual Studio](#windows-with-visual-studio-2015)
-* [Any platform using Vagrant and a Linux Virtual Machine](#vagrant) 
+* [Any platform using Vagrant and a Linux Virtual Machine](#vagrant)
 
 ## GNU Make (Linux)
 
@@ -84,9 +84,6 @@ First, clone or fork this repo, and then:
 10.) Open the solution located in the `build` folder.
 
 * There will be a prompt asking you to 'upgrade' your project. You should hit cancel on this dialog, as we don't want to upgrade.
-
-* Set working directory to `$(TargetDir)` under `Project Properties->Configuration Properties->Debugging->Working Directory`
-* Set your Ogre project as startup project
 
 11.) Finally, when you run your program make sure you choose `DirectX 9` as your renderer backend.
 
