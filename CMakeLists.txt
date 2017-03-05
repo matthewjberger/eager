@@ -10,12 +10,15 @@ set (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 # Use cotire
 include(cotire)
 
+# Place targets into their own solution folders
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+
 # Set the proper paths for windows
 # using the OGRE_HOME environment variable.
 if(MSVC)
     # Get the OGRE_HOME environment variable with unix slashes
     set(OGRE_HOME "$ENV{OGRE_HOME}")
-    STRING(REGEX REPLACE "\\\\" "/" OGRE_HOME ${OGRE_HOME}) 
+    STRING(REGEX REPLACE "\\\\" "/" OGRE_HOME ${OGRE_HOME})
 
     # Set the paths to search relative to the SDK root
     set(CMAKE_MODULE_PATH "${OGRE_HOME}/CMake/;${CMAKE_MODULE_PATH}")
@@ -119,6 +122,13 @@ cotire( ${PROJECT_NAME} )
 # Output to bin directory
 set_target_properties(${PROJECT_NAME} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
+
+if(MSVC)
+    # Set the startup project
+    set_property(DIRECTORY ${CMAKE_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME})
+    # Set the working directory
+    set_target_properties(${PROJECT_NAME} PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/debug)
+endif(MSVC)
 
 if(UNIX)
 	# Copy configs to output folder after a successful build
