@@ -90,7 +90,7 @@ endif(MSVC)
 # Create file globs
 file(GLOB_RECURSE PROJECT_HEADERS src/*.h)
 file(GLOB_RECURSE PROJECT_SOURCES src/*.cpp)
-file(GLOB         PROJECT_CONFIGS CMakeLists.txt
+file(GLOB_RECURSE PROJECT_CONFIGS CMakeLists.txt
                                   README.md
                                  .gitignore)
 
@@ -99,9 +99,24 @@ source_group("Headers" FILES ${PROJECT_HEADERS})
 source_group("Sources" FILES ${PROJECT_SOURCES})
 source_group("Configs" FILES ${PROJECT_CONFIGS})
 
+# Add configs to the source grouping for Visual Studio
+if(MSVC)
+    file(GLOB PROJECT_CONFIGS_WINDOWS_RELEASE src/config/windows/release/*.cfg)
+    file(GLOB PROJECT_CONFIGS_WINDOWS_DEBUG   src/config/windows/debug/*.cfg)
+    file(GLOB PROJECT_CONFIGS_UNIX            src/config/unix/*.cfg)
+
+    source_group("Configs\\Windows_Configs\\Release" FILES ${PROJECT_CONFIGS_WINDOWS_RELEASE})
+    source_group("Configs\\Windows_Configs\\Debug"   FILES ${PROJECT_CONFIGS_WINDOWS_DEBUG})
+    source_group("Configs\\Unix_Configs"             FILES ${PROJECT_CONFIGS_UNIX})
+endif(MSVC)
+
 # Define the executable
 add_executable( ${PROJECT_NAME} ${PROJECT_HEADERS}
-                                ${PROJECT_SOURCES})
+                                ${PROJECT_SOURCES}
+                                ${PROJECT_CONFIGS}
+                                ${PROJECT_CONFIGS_WINDOWS_RELEASE}
+                                ${PROJECT_CONFIGS_WINDOWS_DEBUG}
+                                ${PROJECT_CONFIGS_UNIX})
 
 # Define libraries to link to
 target_link_libraries( ${PROJECT_NAME} ${OGRE_LIBRARIES}
@@ -126,8 +141,21 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 if(MSVC)
     # Set the startup project
     set_property(DIRECTORY ${CMAKE_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME})
+
     # Set the working directory
     set_target_properties(${PROJECT_NAME} PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/debug)
+
+    # Copy debug configs to output folder after a successful bug build
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+                              COMMAND ${CMAKE_COMMAND} -E copy_directory
+                              ${CMAKE_SOURCE_DIR}/src/config/windows/debug
+                              $<TARGET_FILE_DIR:${PROJECT_NAME}>)
+
+    # Copy release configs to output folder after a successful build
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+     	                      COMMAND ${CMAKE_COMMAND} -E copy_directory
+                              ${CMAKE_SOURCE_DIR}/src/config/windows/release
+			                  $<TARGET_FILE_DIR:${PROJECT_NAME}>)
 endif(MSVC)
 
 if(UNIX)
