@@ -7,7 +7,7 @@ You can fork this repo and work on the files in the source directory.
 
 * [Linux using a Makefile or Eclipse](#gnu-make-linux)
 * [Windows using Visual Studio](#windows-with-visual-studio-2015)
-* [Any Platform using Vagrant and a Linux Virtual Machine](#vagrant) 
+* [Any platform using Vagrant and a Linux Virtual Machine](#vagrant) 
 
 ## GNU Make (Linux)
 
