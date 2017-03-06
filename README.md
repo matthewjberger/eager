@@ -73,19 +73,17 @@ First, clone or fork this repo, and then:
 
 6.) Set an environment variable named `OGRE_HOME` to the root path of the extracted SDK folder
 
-7.) Copy the `media` and `bin` folders to the root of the path where you cloned this repository. These should be in the same level as the `CMakeLists.txt` file and the `src` directory.
+7.) Create a directory named `build` inside the root of your clone of this repository.
 
-8.) Create a directory named `build` inside the root of your clone of this repository.
-
-9.) Generate a `Visual Studio 2015` solution and project files:
+8.) Generate a `Visual Studio 2015` solution and project files:
 
     cmake -G "Visual Studio 14 2015" -T v110 ..
 
-10.) Open the solution located in the `build` folder.
+9.) Open the solution located in the `build` folder.
 
 * There will be a prompt asking you to 'upgrade' your project. You should hit cancel on this dialog, as we don't want to upgrade.
 
-11.) Finally, when you run your program make sure you choose `DirectX 9` or `OpenGL` as your renderer backend.
+10.) Finally, when you run your program make sure you choose `DirectX 9` or `OpenGL` as your renderer backend.
 
 ##### Note: Thanks to the [Cotire CMake plugin](https://github.com/sakra/cotire) the build will be sped up considerably.
 

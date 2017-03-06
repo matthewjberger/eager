@@ -26,6 +26,10 @@ if(MSVC)
     set(OGRE_BOOST_INCLUDE_PATH "${OGRE_HOME}/boost")
     set(OGRE_BOOST_LIBRARIES "${OGRE_HOME}/boost/lib")
 
+    # Copy Media and Bin folders out to the repository
+    file(COPY ${OGRE_HOME}/bin DESTINATION ${CMAKE_SOURCE_DIR})
+    file(COPY ${OGRE_HOME}/media DESTINATION ${CMAKE_SOURCE_DIR})
+
     # Hide the console in visual studio projects in debug and release
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS")
     set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS")
