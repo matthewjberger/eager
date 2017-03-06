@@ -4,12 +4,6 @@
 cmake_minimum_required(VERSION 3.0)
 project(Ogre3D)
 
-# Set the CMake module path
-set (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
-
-# Use cotire
-include(cotire)
-
 # Place targets into their own solution folders
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
@@ -134,9 +128,6 @@ target_link_libraries( ${PROJECT_NAME} ${OGRE_LIBRARIES}
                                        ${OGRE_MeshLodGenerator_LIBRARIES}
                                        ${OGRE_HLMS_LIBRARIES}
                                        ${OGRE_Bites_LIBRARIES})
-
-# Reduce the compile time of the build
-cotire( ${PROJECT_NAME} )
 
 # Output to bin directory
 set_target_properties(${PROJECT_NAME} PROPERTIES

@@ -87,7 +87,7 @@ First, clone or fork this repo, and then:
 
 10.) Finally, when you run your program make sure you choose `DirectX 9` or `OpenGL` as your renderer backend.
 
-##### Note: Thanks to the [Cotire CMake plugin](https://github.com/sakra/cotire) the build will be sped up considerably.
+##### Note: Consider using [Precompiled Headers](http://www.ogre3d.org/tikiwiki/Precompiled+headers), which can speed up the build time significantly.
 
 # Vagrant
 
