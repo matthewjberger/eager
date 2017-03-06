@@ -59,7 +59,7 @@ if(UNIX)
 	endif(EXISTS "/usr/local/lib/OGRE/cmake")
 endif(UNIX)
 
-# Support C++14
+# Support C++11
 set(CMAKE_CXX_STANDARD_REQUIRED on)
 set(CMAKE_CXX_STANDARD 11)
 
@@ -90,7 +90,7 @@ endif(MSVC)
 # Create file globs
 file(GLOB_RECURSE PROJECT_HEADERS src/*.h)
 file(GLOB_RECURSE PROJECT_SOURCES src/*.cpp)
-file(GLOB_RECURSE PROJECT_CONFIGS CMakeLists.txt
+file(GLOB         PROJECT_CONFIGS CMakeLists.txt
                                   README.md
                                  .gitignore)
 
