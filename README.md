@@ -49,7 +49,9 @@ To import the created project file into Eclipse:
 
 Finally, when you compile, your project can be found in the `bin` directory.
 
-## Windows with Visual Studio 2015
+# Windows with Visual Studio 2015
+
+#### This requires CMake 3.8. [Click here to download CMake 3.8.](https://cmake.org/download/)
 
 First, clone or fork this repo, and then:
 
