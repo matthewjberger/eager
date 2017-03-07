@@ -148,15 +148,15 @@ if(MSVC)
 
     # Copy release configs to output folder after a successful build
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-     	                      COMMAND ${CMAKE_COMMAND} -E copy_directory
+                              COMMAND ${CMAKE_COMMAND} -E copy_directory
                               ${CMAKE_SOURCE_DIR}/src/config/windows/release
-			      $<TARGET_FILE_DIR:${PROJECT_NAME}>)
+                              $<TARGET_FILE_DIR:${PROJECT_NAME}>)
 endif(MSVC)
 
 if(UNIX)
 	# Copy configs to output folder after a successful build
 	add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-       	                    COMMAND ${CMAKE_COMMAND} -E copy_directory
-                            ${CMAKE_SOURCE_DIR}/src/config/unix
-			    $<TARGET_FILE_DIR:${PROJECT_NAME}>)
+                              COMMAND ${CMAKE_COMMAND} -E copy_directory
+                              ${CMAKE_SOURCE_DIR}/src/config/unix
+                              $<TARGET_FILE_DIR:${PROJECT_NAME}>)
 endif(UNIX)
