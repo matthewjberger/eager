@@ -5,13 +5,30 @@ You can fork this repo and work on the files in the source directory.
 
 [Click here for instructions on keeping your fork up to date with this repo.](https://help.github.com/articles/syncing-a-fork/)
 
-# Building your Project
+## Instructions
+### Building your Project
 
 * [Linux using a Makefile or Eclipse](#gnu-make-linux)
 * [Windows using Visual Studio](#windows-with-visual-studio-2015)
 * [Any platform using Vagrant and a Linux Virtual Machine](#vagrant)
 
-## GNU Make (Linux)
+### Additional Libraries
+
+In order to use the optional additional libraries below, you must make sure this repo's submodules have been cloned.
+Run this command in the repo directory:
+
+```bash
+git submodule init && git submodule update --remote --merge
+```
+
+#### Libraries
+
+* [Bullet Physics](#bullet)
+
+You can append more than one of these options to get any combination of additional libraries.
+
+## Building Your Project
+### GNU Make (Linux)
 
 >  Check the [building OGRE from source](#building-ogre-from-source) section if anything fails here.
 
@@ -49,9 +66,9 @@ To import the created project file into Eclipse:
 
 Finally, when you compile, your project can be found in the `bin` directory.
 
-# Windows with Visual Studio 2015
+### Windows with Visual Studio 2015
 
-#### This requires CMake 3.8. [Click here to download CMake 3.8.](https://cmake.org/download/)
+##### This requires CMake 3.8. [Click here to download CMake 3.8.](https://cmake.org/download/)
 
 First, clone or fork this repo, and then:
 
@@ -79,7 +96,9 @@ First, clone or fork this repo, and then:
 
 8.) Generate a `Visual Studio 2015` solution and project files:
 
-    cmake -G "Visual Studio 14 2015" -T v110 ..
+```bash
+cmake -G "Visual Studio 14 2015" -T v110 ..
+```
 
 9.) Open the solution located in the `build` folder.
 
@@ -87,9 +106,9 @@ First, clone or fork this repo, and then:
 
 10.) Finally, when you run your program make sure you choose `DirectX 9` or `OpenGL` as your renderer backend.
 
-##### Note: Consider using [Precompiled Headers](http://www.ogre3d.org/tikiwiki/Precompiled+headers), which can speed up the build time significantly.
+###### Note: Consider using [Precompiled Headers](http://www.ogre3d.org/tikiwiki/Precompiled+headers), which can speed up the build time significantly.
 
-# Vagrant
+### Vagrant
 
 This will generate an ubuntu virtual machine with eclipse, cmake, and the Ogre3D library built from source and installed.
 
@@ -111,6 +130,7 @@ cd eager
 ```bash
 vagrant up
 ```
+
 > Username: `vagrant`
 
 > Password: `vagrant`
@@ -119,7 +139,7 @@ The virtual machine will be downloaded and then opened in VirtualBox. You can lo
 
 ####Note: If there is an issue with the mouse while running a 3D program that captures the mouse, hit `ctrl+home` and then go to `input->mouse integration` and disable it. This can be re-enabled when you're finished running the program.
 
-# Building OGRE from Source
+## Building OGRE from Source
 
 #### Note: If you're using the ecc computers at the University of Nevada, Reno, the following steps are not required. The library has already been built from source and installed. However, if you are using NoMachine the code will compile but to run you must use the command below:
 > /usr/NX/scripts/vgl/vglrun \<your project's .bin path here\>
@@ -127,7 +147,7 @@ The virtual machine will be downloaded and then opened in VirtualBox. You can lo
 Ogre 3D must be installed. If it isn't installed you should build it from the source with the following commands.  Mercurial is required to clone the repo.
 
 
-#### Ubuntu (or any Debian-Based Linux distribution)
+### Ubuntu (or any Debian-Based Linux distribution)
 
 Download the required dependencies:
 
@@ -162,4 +182,21 @@ Install the library:
 
 ```bash
 sudo make install
+```
+
+## Additional Libraries
+
+### Bullet
+
+Append the `-DINCLUDE_BULLET=ON` when you generate your project file with cmake:
+
+```bash
+# Make
+cmake .. -DINCLUDE_BULLET=ON
+
+# Eclipse
+cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=Debug .. -DINCLUDE_BULLET=ON
+
+# Visual Studio 2015
+cmake -G "Visual Studio 14 2015" -T v110 .. -DINCLUDE_BULLET=ON
 ```

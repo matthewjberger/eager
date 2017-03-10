@@ -4,6 +4,17 @@
 cmake_minimum_required(VERSION 3.0)
 project(Ogre3D)
 
+# Use bullet
+option (INCLUDE_BULLET "Include the Bullet Physics Library" OFF)
+if (INCLUDE_BULLET)
+    option(BUILD_BULLET2_DEMOS OFF)
+    option(BUILD_CPU_DEMOS OFF)
+    option(BUILD_EXTRAS OFF)
+    option(BUILD_OPENGL3_DEMOS OFF)
+    option(BUILD_UNIT_TESTS OFF)
+    add_subdirectory(vendor/bullet)
+endif()
+
 # Place targets into their own solution folders
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
@@ -79,11 +90,17 @@ include_directories(${OGRE_INCLUDE_DIRS}
                     ${OIS_INCLUDE_DIRS}
                     ${OGRE_SAMPLES_INCLUDEPATH}
                     ${OGRE_Overlay_INCLUDE_DIRS})
+
 # Add MSVC Boost include and library path
 if(MSVC)
 	include_directories(${OGRE_BOOST_INCLUDE_PATH})
 	link_directories(${OGRE_BOOST_LIBRARIES})
 endif(MSVC)
+
+# Add Bullet include path
+if(INCLUDE_BULLET)
+	include_directories(vendor/bullet/src)
+endif(INCLUDE_BULLET)
 
 # Create file globs
 file(GLOB_RECURSE PROJECT_HEADERS src/*.h)
@@ -128,6 +145,11 @@ target_link_libraries( ${PROJECT_NAME} ${OGRE_LIBRARIES}
                                        ${OGRE_MeshLodGenerator_LIBRARIES}
                                        ${OGRE_HLMS_LIBRARIES}
                                        ${OGRE_Bites_LIBRARIES})
+
+# Statically link Bullet libraries
+if(INCLUDE_BULLET)
+	include_directories( ${PROJECT_NAME} BulletDynamics BulletCollision LinearMath)
+endif(INCLUDE_BULLET)
 
 # Output to bin directory
 set_target_properties(${PROJECT_NAME} PROPERTIES
