@@ -148,7 +148,7 @@ target_link_libraries( ${PROJECT_NAME} ${OGRE_LIBRARIES}
 
 # Statically link Bullet libraries
 if(INCLUDE_BULLET)
-	include_directories( ${PROJECT_NAME} BulletDynamics BulletCollision LinearMath)
+	target_link_libraries(${PROJECT_NAME} BulletDynamics BulletCollision LinearMath)
 endif(INCLUDE_BULLET)
 
 # Output to bin directory
